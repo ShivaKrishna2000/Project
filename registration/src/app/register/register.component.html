@@ -1,0 +1,66 @@
+<div class="container col-md-3">
+<div class="text-center">
+    <h3>Sign Up/Register</h3>
+</div>
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show "role="alert">
+  <strong>Registered successfully !</strong> 
+  <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+</div>
+  <form #registrationform="ngForm" (ngSubmit)="registerUser()" >
+    <small class="text-danger">{{msg}}</small>
+     <div class="form-group">
+        <label for="username" >Username:</label>
+        <input minlength="4" maxlength="15" type="text" class="form-control" id="username" name="username" placeholder="Enter username" [(ngModel)]="user.userName"required #username="ngModel"
+        [class.is-invalid]="username.invalid && username.touched"
+        >
+        <small class="text-danger" [class.d-none]="username.valid || username.untouched"> username is required </small>
+        <div *ngIf="username.errors?.['minlength'] && username.errors?.['maxlength']">
+          Username invalid
+        </div>
+      </div><br>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" name="age"  placeholder="Enter age" [(ngModel)]="user.age">
+      </div><br>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" value="male"[(ngModel)]="user.gender" >
+        <label class="form-check-label" for="gender">
+         Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" value="female" [(ngModel)]="user.gender" >
+        <label class="form-check-label" for="gender">
+         Female
+        </label>
+      </div>
+      </div><br>
+       <div class=" form-group">
+         <label for="hobbies">Hobbies:</label>
+         <div *ngFor="let obj of hobbyArr">
+          <input type="checkbox" value="{{obj.value}}"(change)="hobbyChange($event)">{{obj.key}}
+         </div>
+       </div><br>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="user.password" required #password="ngModel"
+        [class.is-invalid]="password.invalid && password.touched "
+        >
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Password is required </small>
+    </div><br>
+    <div class="text-center">
+      <button type="submit" class="btn btn-info"  routerLink="login">Submit</button>
+    </div>
+    
+  </form>
+</div>
+
+

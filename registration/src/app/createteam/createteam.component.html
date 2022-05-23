@@ -1,0 +1,19 @@
+
+<div class="container col-md-4 ">
+    <h2>Create Team</h2><br>
+<form #teamform="ngForm" (ngSubmit)="createTeam()">
+    <small class="text-danger">{{msg}}</small>
+    <div class="form-group">
+      <label for="teamname">Team Name:</label>
+      <input type="text" class="form-control" id="teamname" name="teamname" placeholder="Enter team name"
+      [(ngModel)]="team.teamName">
+     
+    </div><br>
+    <div class="form-group">
+      <label for="maxbudget">Maximum Budget</label>
+      <input type="number" class="form-control" id="maxbudget" name="maxbudget" placeholder="maximum budget"
+      [(ngModel)]="team.maximumBudget">
+    </div><br>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

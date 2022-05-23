@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Show Player</h2>
+    <form #form = ngForm (ngSubmit)="showPlayer()">
+       
+      <div class="form-group" >
+        <label for="playerId">Player Id:</label>
+        <input type="text" class="form-control" id="playerId" placeholder="Enter player Id" name="playerId" 
+           [(ngModel)]="player.playerId" #playerId >
+          {{player.playerId}}   
+      </div>
+        
+      <button type="submit" class="btn btn-info" >Show Player</button>
+
+      <table class="table"> 
+        <tr>
+        <th>Id</th>
+        <th>Player Name</th>
+        <th>Player Bidding Budget</th>
+        <th>Player Team Name</th>
+        </tr>
+        <tr *ngIf="player">
+          <td>{{player.playerId}}</td>
+          <td>{{player.playerName}}</td>
+          <td>{{player.biddingBudget}}</td>
+          <td>{{player.teamName}}</td>
+          
+      </table>
+      
+      </form>
+      </div>

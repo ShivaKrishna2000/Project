@@ -1,0 +1,40 @@
+<div class="container">
+    <button type="button" class="btn btn-primary"  [routerLink]="['/login']">Logout</button>
+</div>
+<div class="header">
+    <h3 style="text-align: center;"><b>TEAM DETAILS </b></h3>
+    <br>
+</div>
+<div class="form-group">
+    <label for="teamname"><span class="req">*</span>Team name:</label>
+    <input required type="text" name="teamname" id="teamname" class="form-control" [(ngModel)]="team.teamName" placeholder="Enter teamname.."/>
+    
+</div>
+<div class="from-group">
+    <input class="btn btn-success" type="submit" name="submit" id="submit" value="Submit" (click)="showByTeamName()">
+
+</div>
+<div class ="form-group">
+    <button style="margin-left:80px;" (click)="goToPage()">
+    <span systle="color:red;">Go back to Home Page</span>
+    </button>
+</div>
+<br>
+<div class="contain" systle="margin-left :300px;padding-right:290px;"></div>
+<table class="table"> 
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Player Name</th>
+      <th>Player Bidding Budget</th>
+      <th>Player Team Name</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let player of players">
+      <td>{{player.playerId}}</td>
+      <td>{{player.playerName}}</td>
+      <td>{{player.biddingBudget}}</td>
+      <td>{{player.teamName}}</td>
+    </tr>
+  </table>
+  

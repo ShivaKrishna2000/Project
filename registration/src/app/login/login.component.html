@@ -1,0 +1,40 @@
+
+<div class="container col-md-4 ">
+  <h2>User Login</h2>
+  <form #loginform="ngForm" (ngSubmit)="loginUser()" >
+ 
+    <small class="text-danger">{{msg}}</small>
+     <div class="form-group">
+     
+        <label for="userName">User Name:</label>
+        <input type="text" class="form-control"  placeholder="Enter username" name="userName" [(ngModel)]="user.userName" required #username="ngModel"
+        [class.is-invalid]="username.invalid && username.touched"
+        >
+        <small class="text-danger" [class.d-none]="username.valid || username.untouched"> Username is required </small>
+        </div><br>
+        <div class="form-group">
+         <label for="password">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="user.password" required #password="ngModel"
+        [class.is-invalid]="password.invalid && password.touched "
+        >
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched"> Password is required </small>
+       </div><br>
+      <div class="checkbox">
+       <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+       <br>
+    <button type="submit" class="btn btn-info" >Submit</button>
+  </form><br>
+  <h4 class="float-right" (click)="goToRegistration()" > New user ? Sign up/Register Here </h4><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+

@@ -1,0 +1,31 @@
+<div class="container col-md-4 ">
+    <h2>Create Player</h2><br>
+  <form #teamform="ngForm" (ngSubmit)="createPlayer()" >
+    
+    <small class="text-danger">{{msg}}</small>
+    <div class="form-group">
+      <label for="playername">Player Name:</label>
+      <input type="text" class="form-control" id="playername" name="playername" placeholder="Enter player name"
+      [(ngModel)]="player.playerName">
+    </div><br>
+
+    <div class="form-group">
+      <label for="bidbudget">Bidding Budget:</label>
+      <input type="number" class="form-control" id="bidbudget" name="bidbudget" placeholder="bidding budget"
+      [(ngModel)]="player.biddingBudget">
+    </div><br>
+
+    <div class="form-group">
+      <label for="team">Teams Name:</label>
+      <div class="input-group input-group-sm mb-3">
+        <select [(ngModel)]="player.teamName" [ngModelOptions]="{standalone: true}">
+        <option value="0">--Select Team--</option>
+         <option *ngFor="let team of teams "[value]="team">{{team}} </option>
+         <option value="1">NA</option>
+        </select>
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
